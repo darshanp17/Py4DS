@@ -7,7 +7,7 @@
     Try changing "table" to "view" below
 */
 
-{{ config(materialized='buildone') }}
+{{ config(materialized='CUSTOMER_LIST') }}
 
 select
     CUSTOMER_ID,
@@ -16,8 +16,6 @@ select
     MOST_RECENT_ORDER_DATE
 from {{ ref('DIM_CUSTOMER') }}
 where     FIRST_ORDER_DATE IS NOT NULL
-/*
-    Uncomment the line below to remove records with null `id` values
-*/
 
--- where id is not null
+
+
